@@ -6,7 +6,59 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    overflow: hidden; /* Hide the scrollbars */
 }
+
+/* Dragon image animation setup */
+.dragon {
+    position: absolute;
+    top: 10%; /* Adjust this to position it where you want */
+    left: -20%; /* Start from outside the screen */
+    width: 15%; /* Adjust the size of the dragon image */
+    height: auto;
+    z-index: -1; /* Make sure the dragon image stays in the background */
+    animation: flyDragon 30s ease-in infinite;
+
+}
+
+@keyframes flyDragon {
+    0% {
+        transform: translateX(-20%) translateY(10vh); /* Starts from the left, slightly from the top */
+    }
+    10% {
+        transform: translateX(10vw) translateY(20vh); /* Slight right and down */
+    }
+    20% {
+        transform: translateX(25vw) translateY(25vh); /* Slight downward movement */
+    }
+    30% {
+        transform: translateX(40vw) translateY(30vh); /* Move further right and slightly down */
+    }
+    40% {
+        transform: translateX(55vw) translateY(25vh); /* Slight upward movement */
+    }
+    50% {
+        transform: translateX(70vw) translateY(40vh); /* Moves right and slightly downward */
+    }
+    60% {
+        transform: translateX(80vw) translateY(35vh); /* Smooth, controlled downward movement */
+    }
+    70% {
+        transform: translateX(90vw) translateY(45vh); /* Move slightly down as it moves right */
+    }
+    80% {
+        transform: translateX(100vw) translateY(40vh); /* Moves to the far right and slightly upward */
+    }
+    90% {
+        transform: translateX(110vw) translateY(35vh); /* Continue moving right and slightly down */
+    }
+    100% {
+        transform: translateX(120vw) translateY(20vh); /* End at the far right */
+    }
+}
+
+
 
 header {
     background-color: #282c34;
@@ -15,7 +67,7 @@ header {
     padding: 20px;
     text-align: center;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .scrolling-text {
@@ -35,7 +87,7 @@ header {
 main {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     margin-top: 20px;
 }
 
@@ -49,6 +101,8 @@ main {
     text-align: center;
     transition: transform 0.3s ease-in-out;
     overflow: hidden;
+    position: relative;
+    z-index: 1; /* Cards appear above the dragon image */
 }
 
 .card a {
@@ -70,13 +124,13 @@ main {
 }
 
 .card h2 {
-    font-size: 1.5rem; /* 24px */
-    margin: 1rem 0; /* 16px */
+    font-size: 1.5rem;
+    margin: 1rem 0;
 }
 
 .card p {
-    font-size: 1rem; /* 16px */
-    padding: 0 1rem 1rem; /* 16px */
+    font-size: 1rem;
+    padding: 0 1rem 1rem;
 }
 
 /* Responsive Styles */
@@ -103,7 +157,6 @@ main {
 
     .card img {
         height: 18rem; 
-        object-fit: cover;
     }
 
     .card h2 {
